@@ -1,0 +1,20 @@
+---
+- name: Deploy Secure DevOps Apps
+  hosts: localhost
+  become: yes
+  vars:
+    app_dir: /opt/secure-devops-apps
+    domain: yourdomain.com  # Replace with your domain
+    email: admin@yourdomain.com  # For Let's Encrypt
+  
+  tasks:
+    - name: Ensure app directory exists
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        mode: '0755'
+  
+  roles:
+    - nginx-certbot
+    - mongodb
+    - flask-app
