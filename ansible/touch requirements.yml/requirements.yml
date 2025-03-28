@@ -1,0 +1,7 @@
+---
+roles:
+  - src: geerlingguy.nginx
+    version: 3.1.0
+  - src: geerlingguy.mongodb
+    version: 1.2.0
+collections: []
